@@ -11,7 +11,7 @@ services:
     environment:
       - API_KEY=${API_KEY}
       - JWT_SECRET_KEY=${JWT_SECRET_KEY}
-      - REDIS_URL=redis://redis:6379
+      - REDIS_URL=${REDIS_URL}
 
     depends_on:
       - redis
