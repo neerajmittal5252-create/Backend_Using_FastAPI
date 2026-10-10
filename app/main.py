@@ -11,6 +11,6 @@ app.add_middleware(LoggingMiddleware)
 app.include_router(routes_auth.router, tags=['Auth'])
 app.include_router(routes_predict.router, tags=['Prediction'])
 
-Instrumentator().instrument().expose(app)
+Instrumentator().instrument(app).expose(app)
 
 register_exception_handlers(app)

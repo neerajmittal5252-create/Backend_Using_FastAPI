@@ -13,13 +13,13 @@ class CarFeatures(BaseModel):
     seller_type:str
     transmission:str
     km_driven:float
-    milleage_mpg:float
+    mileage_mpg:float
     engine_cc:float
     max_power_bhp:float
-    torque:float
+    torque_nm:float
     seats:float
     
-router.post('/predict')
+@router.post('/predict')
 def predict_price(car: CarFeatures, user=Depends(get_current_user), _=Depends(get_api_key)):
     prediction=predict_car_price(car.model_dump())
     return {"predicted_price":f"Rs.{prediction:,.2f}"}
